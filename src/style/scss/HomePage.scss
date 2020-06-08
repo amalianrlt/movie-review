@@ -1,0 +1,76 @@
+@import "_variables.scss";
+
+li {
+  list-style: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 7rem;
+    input{
+        height:2rem;
+        width: 30rem;
+    }
+}
+
+.movies-card{
+    text-align: left;
+    padding: 0 7rem;
+    .ant-tabs-tab{
+        font-size: 20px;
+        padding: 0 1rem;
+        background: $white;
+        border: 1px solid $white;
+        box-sizing: border-box;
+        border-radius: 50px;
+        &:hover {
+            background: #EB507F;
+            border: 1px solid #EB507F;
+        }
+    }
+}
+
+footer {
+  background-color: $black;
+  color: $white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 35px;
+  height: 350px;
+  padding: 2rem 7rem;
+  .card-footer {
+    display: flex;
+    background-color: $black;
+    border-bottom: 1px solid $white;
+    .desc-footer {
+      width: 45%;
+      font-size: 20px;
+      text-align: left;
+    }
+    .list-footer {
+      width: 30%;
+      font-size: 20px;
+      li{
+          padding-bottom: 1.5rem;
+      }
+    }
+    .social-footer {
+      width: 25%;
+      h5{
+          margin: 1rem;
+      }
+      .logo-footer{
+          display: flex;
+          justify-content: flex-end;
+      }
+      .logo-footer2{
+        display: flex;
+        justify-content: space-between;
+    }
+    }
+  }
+}
