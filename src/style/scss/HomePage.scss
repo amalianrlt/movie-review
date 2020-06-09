@@ -11,65 +11,78 @@ header{
     padding: 0 7rem;
     input{
         height:2rem;
-        width: 30rem;
+        width: 30rem !important;
     }
 }
 
-.movies-card{
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 560px !important;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+  
+    h3 {
+      color: #fff;
+    }
+  }
+
+.movies-card {
     text-align: left;
     padding: 0 7rem;
     .ant-tabs-tab{
-        font-size: 20px;
-        padding: 0 1rem;
-        background: $white;
-        border: 1px solid $white;
-        box-sizing: border-box;
-        border-radius: 50px;
+        font-size: 20px !important;
+        padding: 0 1rem !important;
+        background: $white!important; 
+        border: 1px solid $white!important;
+        box-sizing: border-box!important;
+        border-radius: 50px!important;
         &:hover {
-            background: #EB507F;
-            border: 1px solid #EB507F;
+            background: #EB507F!important;
+            border: 1px solid #EB507F!important;
         }
     }
 }
 
 footer {
-  background-color: $black;
-  color: $white;
+  background-color: $black!important;
+  color: $white!important;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 30px;
+  font-size: 30px!important;
   line-height: 35px;
-  height: 350px;
+  height: 350px!important;
   padding: 2rem 7rem;
   .card-footer {
-    display: flex;
-    background-color: $black;
-    border-bottom: 1px solid $white;
+    display: flex!important;
+    background-color: $black!important;
+    border-bottom: 1px solid $white!important;
     .desc-footer {
       width: 45%;
-      font-size: 20px;
-      text-align: left;
+      font-size: 20px!important;
+      text-align: left!important;
     }
     .list-footer {
       width: 30%;
-      font-size: 20px;
+      font-size: 20px!important;
       li{
           padding-bottom: 1.5rem;
       }
     }
     .social-footer {
-      width: 25%;
+      width: 25%!important;
       h5{
           margin: 1rem;
+          color: $white!important;
       }
       .logo-footer{
           display: flex;
           justify-content: flex-end;
       }
       .logo-footer2{
-        display: flex;
-        justify-content: space-between;
+        display: flex!important;
+        justify-content: space-between!important;
     }
     }
   }
