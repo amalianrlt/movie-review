@@ -14,7 +14,7 @@ class PaginationPage extends React.Component {
   };
 
   render() {
-    return <Pagination current={this.state.current} onChange={this.onChange} total={50} />;
+    return <Pagination style={{textAlign:"center", marginBottom:"3rem"}} current={this.state.current} onChange={this.onChange} total={50} />;
   }
 }
 

@@ -41,7 +41,7 @@ function FooterPage() {
             </div>
             <div className="icon-footer">
               <h5>Social Media</h5>
-              <div className="logo-footer2">
+              <div className="logo-footer2" style={{padding:"0 3rem"}}>
                 <img style={{ width: "2em" }} src={facebook} alt="facebook" />
                 <img style={{ width: "2em" }} src={pinterest} alt="pinterest" />
                 <img style={{ width: "2em" }} src={instagram} alt="instagram" />
