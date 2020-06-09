@@ -6,13 +6,14 @@ import LoginForm from './components/LoginForm';
 import HomePage from './modules/HomePage'
 import DetailOverview from './modules/DetailOverview'
 import OverviewTab from './components/OverviewTab';
+import RoutesPage from './router/Routes';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
         {/* <LoginForm/> */}
-        <HomePage/>
+        <RoutesPage/>
       </div>
     </Provider>
   );

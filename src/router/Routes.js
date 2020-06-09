@@ -1,12 +1,15 @@
-import React from 'react'
-import {Route} from 'react-ro'
+import React from "react";
+import { Router } from "react-router-dom";
+import HomePage from "../modules/HomePage";
 
-function Routes() {
-    return (
-        <div>
-            
-        </div>
-    )
+function RoutesPage() {
+  return (
+    <div>
+      <Router>
+          <HomePage/>
+      </Router>
+    </div>
+  );
 }
 
-export default Routes
+export default RoutesPage;
