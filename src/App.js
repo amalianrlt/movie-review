@@ -1,20 +1,19 @@
-import React from 'react';
+import React from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter as Switch, Router, Route } from "react-router-dom";
 import store from "./store";
-import './App.css';
-import LoginForm from './components/LoginForm';
-import HomePage from './modules/HomePage'
-import DetailOverview from './modules/DetailOverview'
-import OverviewTab from './components/OverviewTab';
-import RoutesPage from './router/Routes';
+import LoginForm from "./components/LoginForm";
+import HomePage from "./modules/HomePage";
+import DetailOverview from "./modules/DetailOverview";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        {/* <LoginForm/> */}
-        <RoutesPage/>
-      </div>
+        <Switch>
+          <Route path="/" exact><HomePage/></Route>
+          <Route path="/overview" exact><DetailOverview/></Route>
+          {/* <LoginForm/> */}
+        </Switch>
     </Provider>
   );
 }
