@@ -1,8 +1,8 @@
 import React from "react";
 import { Tabs } from "antd";
 import MovieReview from "./MovieReview";
-import InputComment from "./comment/InputComment";
-import CommentSection from "./comment/CommentSection";
+import InputComment from "../comment/InputComment";
+import CommentSection from "../comment/CommentSection";
 
 const { TabPane } = Tabs;
 
