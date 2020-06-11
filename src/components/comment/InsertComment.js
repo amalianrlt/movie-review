@@ -1,5 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
+import './index.css';
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
@@ -8,8 +10,8 @@ const { TextArea } = Input;
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
-    header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
-    itemLayout="horizontal"
+    // header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
+    // itemLayout="horizontal"
     renderItem={props => <Comment {...props} />}
   />
 );
@@ -27,7 +29,8 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </>
 );
 
-export default class InputComment extends React.Component {
+
+class App extends React.Component {
   state = {
     comments: [],
     submitting: false,
@@ -57,7 +60,7 @@ export default class InputComment extends React.Component {
           ...this.state.comments,
         ],
       });
-    }, 1000);
+    }, 500);
   };
 
   handleChange = e => {
@@ -71,7 +74,7 @@ export default class InputComment extends React.Component {
 
     return (
       <>
-        {comments.length > 0 && <CommentList comments={comments} />}
+        
         <Comment
           avatar={
             <Avatar
@@ -88,7 +91,10 @@ export default class InputComment extends React.Component {
             />
           }
         />
+        {comments.length > 0 && <CommentList comments={comments} />}
       </>
     );
   }
 }
+
+ReactDOM.render(<App />, document.getElementById('container'));

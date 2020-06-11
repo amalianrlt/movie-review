@@ -1,7 +1,8 @@
 import React from "react";
 import { Tabs } from "antd";
 import MovieReview from "./MovieReview";
-import InputComment from "./InputComment";
+import InputComment from "./comment/InputComment";
+import CommentSection from "./comment/CommentSection";
 
 const { TabPane } = Tabs;
 
@@ -20,14 +21,12 @@ function OverviewTab() {
               <p>Content of Tab Pane 1</p>
             </TabPane>
             <TabPane tab="Characters" key="2">
-              <p>Content of Tab Pane 2</p>
+              <CommentSection/>
               <p>Content of Tab Pane 2</p>
               <p>Content of Tab Pane 2</p>
             </TabPane>
             <TabPane tab="Review" key="3">
               <InputComment/>
-              <p>Content of Tab Pane 3</p>
-              <p>Content of Tab Pane 3</p>
             </TabPane>
           </Tabs>
         </div>
