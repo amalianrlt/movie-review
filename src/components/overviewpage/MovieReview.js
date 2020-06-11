@@ -1,5 +1,5 @@
 import React from "react";
-import PeakyBlinders from "../style/images/peaky.jpg";
+import PeakyBlinders from "../../style/images/peaky.jpg";
 import { Button } from "antd";
 
 function MovieReview() {

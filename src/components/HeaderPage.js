@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Layout } from "antd";
 import { Link } from "react-router-dom";
-import ModalPage from './ModalPage'
+import ModalPage from './homepage/ModalPage'
 
 const { Header } = Layout;
 function HeaderPage() {
