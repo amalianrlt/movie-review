@@ -1,16 +1,17 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import { Comment, Avatar, Form, Button, List, Input } from 'antd';
-import moment from 'moment';
+//using antd
+import React from "react";
+import "antd/dist/antd.css";
+import { Comment, Avatar, Form, Button, List, Input } from "antd";
+import moment from "moment";
 
 const { TextArea } = Input;
 
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
-    header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
+    header={`${comments.length} ${comments.length > 1 ? "replies" : "reply"}`}
     itemLayout="horizontal"
-    renderItem={props => <Comment {...props} />}
+    renderItem={(props) => <Comment {...props} />}
   />
 );
 
@@ -20,7 +21,12 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
+      <Button
+        htmlType="submit"
+        loading={submitting}
+        onClick={onSubmit}
+        type="primary"
+      >
         Add Comment
       </Button>
     </Form.Item>
@@ -29,9 +35,9 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 
 export default class InputComment extends React.Component {
   state = {
-    comments: [],
-    submitting: false,
-    value: '',
+    comments: [], //udah
+    submitting: false, //udah
+    value: "",//udah
   };
 
   handleSubmit = () => {
@@ -46,11 +52,12 @@ export default class InputComment extends React.Component {
     setTimeout(() => {
       this.setState({
         submitting: false,
-        value: '',
+        value: "",
         comments: [
           {
-            author: 'Han Solo',
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            author: "Han Solo",
+            avatar:
+              "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),
           },
@@ -60,7 +67,7 @@ export default class InputComment extends React.Component {
     }, 1000);
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       value: e.target.value,
     });
@@ -71,7 +78,6 @@ export default class InputComment extends React.Component {
 
     return (
       <>
-        {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
           avatar={
             <Avatar
@@ -88,6 +94,7 @@ export default class InputComment extends React.Component {
             />
           }
         />
+        {comments.length > 0 && <CommentList comments={comments} />}
       </>
     );
   }
