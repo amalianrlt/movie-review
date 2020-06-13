@@ -4,6 +4,8 @@ import { Tabs } from "antd";
 const { TabPane } = Tabs;
 
 function HomeTab() {
+
+  // const movieList = useSelector(state => state.movieList)
   return (
     <div className="movies-card">
     <h3>Browse by Category</h3>
