@@ -1,21 +1,21 @@
-import { GET_MOVIES } from "../actions/types";
+// import { GET_MOVIES } from "../actions/types";
 
-const initialState = {
-  movies: [],
-};
+// const initialState = {
+//   movies: [],
+// };
 
-const movieList = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case GET_MOVIES:
-      return [...state]
+// const movieList = (state = initialState, action) => {
+//   const { type, payload } = action;
+//   switch (type) {
+//     case GET_MOVIES:
+//       return [...state]
     
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
 
-export default movieList
+// export default movieList
 
 // const movieListReducer = (state = initialState, action) => {
 //   switch(action.type) {

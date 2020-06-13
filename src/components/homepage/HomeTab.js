@@ -1,20 +1,39 @@
-import React from "react";
-import { Tabs } from "antd";
+import React, { useState, useEffect } from "react";
+import { Tabs, Col, Card, Row } from "antd";
+import Axios from "axios";
 
 const { TabPane } = Tabs;
 
 function HomeTab() {
+  const [movies, setMovies] = useState([]);
+  Axios({
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/photos",
+  })
+    .then((res) => {
+      setMovies(res.data.slice(0, 10));
+    })
+    .catch((err) => {});
 
   // const movieList = useSelector(state => state.movieList)
   return (
     <div className="movies-card">
-    <h3>Browse by Category</h3>
+      <h3>Browse by Category</h3>
       <div className="card-container">
         <Tabs type="card">
           <TabPane tab="all" key="1">
-            <p>Content of Tab Pane 1</p>
-            <p>Content of Tab Pane 1</p>
-            <p>Content of Tab Pane 1</p>
+            <Row>
+              {movies.map(movie=> 
+                <Col span={4}>
+                  <Card
+                    hoverable
+                    style={{width:240, margin: "1rem"}}
+                    cover={<img alt="movie" src={movie.url}/>}>
+                    <h5>{movie.title}</h5>
+                  </Card>
+                </Col>
+                )}
+            </Row>
           </TabPane>
           <TabPane tab="anime" key="2">
             <p>Content of Tab Pane 2</p>
@@ -45,9 +64,6 @@ function HomeTab() {
       </div>
     </div>
   );
-  
 }
-
-
 
 export default HomeTab;
