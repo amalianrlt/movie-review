@@ -42,6 +42,7 @@ header{
       font-size: 25px;
       margin-bottom: 2rem;
     }
+
     .ant-tabs-tab{
         font-size: 20px !important;
         padding: 0 1rem !important;
@@ -53,6 +54,19 @@ header{
             background: #EB507F!important;
             border: 1px solid #EB507F!important;
         }
+    }
+    .all-movie{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .all-movie-list{
+        width: 17%;
+        height: auto;
+        margin: 1rem;
+        img{
+          width: 100%;
+        }
+      }
     }
 }
 

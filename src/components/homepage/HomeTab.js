@@ -11,7 +11,7 @@ function HomeTab() {
     url: "https://jsonplaceholder.typicode.com/photos",
   })
     .then((res) => {
-      setMovies(res.data.slice(0, 10));
+      setMovies(res.data.slice(0, 30));
     })
     .catch((err) => {});
 
@@ -21,19 +21,13 @@ function HomeTab() {
       <h3>Browse by Category</h3>
       <div className="card-container">
         <Tabs type="card">
-          <TabPane tab="all" key="1">
-            <Row>
-              {movies.map(movie=> 
-                <Col span={4}>
-                  <Card
-                    hoverable
-                    style={{width:240, margin: "1rem"}}
-                    cover={<img alt="movie" src={movie.url}/>}>
-                    <h5>{movie.title}</h5>
-                  </Card>
-                </Col>
-                )}
-            </Row>
+          <TabPane tab="all" key="1" className="all-movie">
+            {movies.map((movie) => (
+              <div className="all-movie-list">
+                <img alt="movie" src={movie.url} />
+                <h5>{movie.title}</h5>
+              </div>
+            ))}
           </TabPane>
           <TabPane tab="anime" key="2">
             <p>Content of Tab Pane 2</p>
