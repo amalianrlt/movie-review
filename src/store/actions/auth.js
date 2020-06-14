@@ -6,7 +6,7 @@ const baseUrl = "https://miniproject-team-a.herokuapp.com/api/v1"
 const login = data => async dispatch =>{
     try {
         const res =await axios.post(`${baseUrl}/login`, data)
-        console.log(res.data)
+        console.log(res.data, "COBA")
         window.localStorage.setItem('token', res.data.data.access_token)
         dispatch({
             type: LOGIN_SUCCESS
