@@ -4,16 +4,16 @@ import Axios from "axios";
 
 const { TabPane } = Tabs;
 
-function HomeTab() {
+function HomeTab(props) {
   const [movies, setMovies] = useState([]);
-  Axios({
-    method: "GET",
-    url: "https://jsonplaceholder.typicode.com/photos",
-  })
-    .then((res) => {
-      setMovies(res.data.slice(0, 30));
-    })
-    .catch((err) => {});
+  // Axios({
+  //   method: "GET",
+  //   url: "https://jsonplaceholder.typicode.com/photos",
+  // })
+  //   .then((res) => {
+  //     setMovies(res.data.slice(0, 30));
+  //   })
+  //   .catch((err) => {});
 
   // const movieList = useSelector(state => state.movieList)
   return (

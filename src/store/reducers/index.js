@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import auth from "./auth";
-import movieList from "./movieList";
+import homeReducer from "./homeReducer";
 
 export default combineReducers({
   auth,
-  movieList: movieList,
+  homeReducer
 });
