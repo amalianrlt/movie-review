@@ -12,10 +12,10 @@ export function getMovies(){
       } 
     })
     .then((res) => { 
-      console.log("RES",res.data)
+      console.log("RES",res.data.data)
       dispatch({
         type: GET_MOVIES_REQUEST,
-        payload: res.data
+        payload: res.data.data
        })
     })
     .catch((err) => {

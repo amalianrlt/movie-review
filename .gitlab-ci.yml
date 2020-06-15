@@ -19,12 +19,12 @@ deploy-to-staging:
   stage: staging
   environment:
     name: staging
-    url: https://staging-movie-app-list.herokuapp.com/
+    url: https://$STAGING_MOVIE_APP.$HEROKU_DOMAIN.com/
   script:
     - apt-get update -qy
     - apt-get install -y ruby ruby-dev rubygems-integration
     - gem install dpl
-    - dpl --provider=heroku --app=staging-movie-app-list --api-key=ea31cd87-972e-4e9e-a045-2e4edafb2a0d
+    - dpl --provider=heroku --app=$HEROKU_STAGING_APP --api-key=$HEROKU_API_KEY
   only:
     - develop
     
@@ -33,11 +33,11 @@ deploy-production:
   stage: production
   environment:
     name: production
-    url: https://my-movie-list-groupa.herokuapp.com/
+    url: https://$PRODUCTION_MOVIE_APP.$HEROKU_DOMAIN.com/
   script:
     - apt-get update -qy
     - apt-get install -y ruby ruby-dev rubygems-integration
     - gem install dpl
-    - dpl --provider=heroku --app=my-movie-list-groupa --api-key=ea31cd87-972e-4e9e-a045-2e4edafb2a0d
+    - dpl --provider=heroku --app=$PRODUCTION_MOVIE_APP --api-key=$HEROKU_API_KEY
   only:
     - master

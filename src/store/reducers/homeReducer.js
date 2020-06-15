@@ -1,4 +1,4 @@
-import {GET_MOVIES_SUCCESS} from "../actions/types";
+import {GET_MOVIES_REQUEST} from "../actions/types";
 
 let initialState = {
   movies: []
@@ -6,7 +6,7 @@ let initialState = {
 const homeReducer =(state = initialState, action) => {
   const {type, payload} = action;
  switch (type) {
-   case GET_MOVIES_SUCCESS:
+   case GET_MOVIES_REQUEST:
      console.log("PAY")
      return {
        ...state, 
