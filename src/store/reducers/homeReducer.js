@@ -8,7 +8,9 @@ const homeReducer =(state = initialState, action) => {
  switch (type) {
    case GET_MOVIES_SUCCESS:
      console.log("PAY")
-     return [...state, {movies:payload}]
+     return {
+       ...state, 
+       movies:payload}
      default:
      return state
  }

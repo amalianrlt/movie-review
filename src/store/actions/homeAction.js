@@ -6,16 +6,16 @@ export function getMovies(){
     // dispatch({type: types.GET_MOVIES_REQUEST})
     Axios({
       method: "GET",
-      url: "https://jsonplaceholder.typicode.com/photos",
+      url: "https://movieapp-project-2.herokuapp.com/api/v1/movies",
       headers: {
         "Content-type": "application/json"
       } 
     })
-    .then((res) => {
-      console.log("RES",res.data[0])
+    .then((res) => { 
+      console.log("RES",res.data)
       dispatch({
         type: GET_MOVIES_REQUEST,
-        payload: res.data[0]
+        payload: res.data
        })
     })
     .catch((err) => {
