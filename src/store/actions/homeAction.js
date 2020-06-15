@@ -1,18 +1,20 @@
-import { GET_MOVIES_REQUEST } from "./types"  
+import { GET_MOVIES_REQUEST, GET_MOVIES_ID } from "./types"  
 import Axios from 'axios'
 
-export function getMovies(){
+const url = "https://movieapp-project-2.herokuapp.com/api/v1"
+
+export const getMovies = () => {
   return dispatch => {
     // dispatch({type: types.GET_MOVIES_REQUEST})
     Axios({
       method: "GET",
-      url: "https://movieapp-project-2.herokuapp.com/api/v1/movies",
+      url: `${url}/movies/`,
       headers: {
         "Content-type": "application/json"
       } 
     })
     .then((res) => { 
-      console.log("RES",res.data.data)
+      console.log('RESPON', res)
       dispatch({
         type: GET_MOVIES_REQUEST,
         payload: res.data.data
@@ -26,22 +28,24 @@ export function getMovies(){
   }
 }
 
-
-
-
-
-// const baseUrl = "https://jsonplaceholder.typicode.com/photos"
-
-// const getMovies = data => async dispatch =>{
-//     try {
-//         const res = await Axios.post(`${baseUrl}`, data)
-//         console.log(res.data, "COBA")
-//         dispatch({
-//             type: GET_MOVIES_REQUEST
-//         })
-//       } catch (err) {
-//         console.log(err)
-//       }
-//     }
-
-// export default getMovies;
+export const getMoviesId = (id) => {
+  return dispatch => (
+    Axios({
+      method: "GET",
+      url: `${url}/movies/${id}`,
+      headers: {
+        "Content-type": "application/json"
+      } 
+    })
+    .then((res)=>{
+      console.log(res, "RESDATAaaa")
+      dispatch({
+        type : GET_MOVIES_ID,
+        payload : res.data.data
+      })
+    })
+    .catch((err)=>{
+      console.log('ERROR', err)
+    })
+  )
+}
