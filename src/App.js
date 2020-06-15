@@ -9,11 +9,9 @@ import DetailOverview from "./modules/DetailOverview";
 function App() {
   return (
     <Provider store={store}>
-
           <Route path="/" exact><HomePage/></Route>
           <Route path="/overview" exact><DetailOverview/></Route>
           {/* <LoginForm/> */}
-
     </Provider>
   );
 }

@@ -1,47 +1,38 @@
-import React, { useState, useEffect, useSelector } from "react";
-import {useDispatch} from 'react-redux'
-import { Tabs, Col, Card, Row } from "antd";
-import Axios from "axios";
-import { getMovies } from "../../store/actions/homeAction";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Tabs } from "antd";
+import { getMovies, getMoviesId } from "../../store/actions/homeAction";
 
 const { TabPane } = Tabs;
 
 function HomeTab() {
+  const dispatch = useDispatch();
+  const moviesList = useSelector((state) => state.homeReducer.movies);
+  const moviesId = useSelector((state) => state.homeReducer.moviesId);
 
-  const dispatch = useDispatch()
-  dispatch(getMovies())
+  useEffect(() => {
+    dispatch(getMovies());
+  }, [dispatch]);
 
-  // const moviesList = useSelector(state => state.homeReducer.movies)
-  // console.log(moviesList, "GET")
+  useEffect(() => {
+    dispatch(getMoviesId());
+  }, [dispatch]);
 
-  // const [movies, setMovies] = useState([]);
-  // const getMovies = useSelector(state => state.homeReducer.movies)
-
-  // Axios({
-  //   method: "GET",
-  //   url: "https://jsonplaceholder.typicode.com/photos",
-  // })
-  //   .then((res) => {
-  //     setMovies(res.data.slice(0, 30));
-  //   })
-  //   .catch((err) => {});
-
-  // const movieList = useSelector(state => state.movieList)
   return (
     <div className="movies-card">
       <h3>Browse by Category</h3>
       <div className="card-container">
         <Tabs type="card">
-          {/* <TabPane tab="all" key="1" className="all-movie">
-            {movies.map((movie) => (
-              <div className="all-movie-list">
-                <img alt="movie" src={movie.url} />
+          <TabPane tab="all" key="1" className="all-movie">
+            {moviesList.map((movie) => (
+              <div className="all-movie-list" key={movie.id}>
+                <img alt="movie" src={movie.image_url} />
                 <h5>{movie.title}</h5>
               </div>
             ))}
-          </TabPane> */}
+          </TabPane>
           <TabPane tab="anime" key="2">
-            <p>Content of Tab Pane 2</p>
+            <p>{moviesId.title}</p>
             <p>Content of Tab Pane 2</p>
             <p>Content of Tab Pane 2</p>
           </TabPane>
