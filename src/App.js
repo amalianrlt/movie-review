@@ -1,21 +1,18 @@
-import React from "react";
+import React from 'react';
 import { Provider } from "react-redux";
-import { BrowserRouter as Switch, Router, Route } from "react-router-dom";
+import './App.css';
 import store from "./store";
-import LoginForm from "./components/LoginForm";
-import HomePage from "./modules/HomePage";
-import DetailOverview from "./modules/DetailOverview";
+import Routes from './components/routes/Routes';
 
 function App() {
   return (
-    <Provider store={store}>
-        <Switch>
-          <Route path="/" exact><HomePage/></Route>
-          <Route path="/overview" exact><DetailOverview/></Route>
-          <LoginForm/>
-        </Switch>
+    <Provider store={store} >
+      <div>
+        <Routes/>
+      </div>
     </Provider>
   );
 }
 
 export default App;
+
