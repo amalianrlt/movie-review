@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route path="/" exact><HomePage/></Route>
           <Route path="/overview" exact><DetailOverview/></Route>
-          {/* <LoginForm/> */}
+          <LoginForm/>
         </Switch>
     </Provider>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import { Input, Layout } from "antd";
 import { Link } from "react-router-dom";
 import ModalPage from './homepage/ModalPage'
+import ModalLogin from "./homepage/ModalLogin";
 
 const { Header } = Layout;
 function HeaderPage() {
@@ -14,8 +15,9 @@ function HeaderPage() {
         <Input placeholder="Search" />
         <div className="modal-view">
           <Link to="overview">
-            <h1>Sign In</h1>
+          {/* <h1>Sign In</h1> */}
           </Link>
+          <ModalLogin/>
           <ModalPage/>
         </div>
       </Header>
