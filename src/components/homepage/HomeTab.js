@@ -3,20 +3,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { Tabs } from "antd";
 import { getMovies, getMoviesId } from "../../store/actions/homeAction";
 
+import { useHistory, Link } from "react-router-dom";
+
 const { TabPane } = Tabs;
 
 function HomeTab() {
+  let history = useHistory();
   const dispatch = useDispatch();
   const moviesList = useSelector((state) => state.homeReducer.movies);
   const moviesId = useSelector((state) => state.homeReducer.moviesId);
 
   useEffect(() => {
     dispatch(getMovies());
-  }, [dispatch]);
+  }, []);
 
-  useEffect(() => {
-    dispatch(getMoviesId());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getMoviesId());
+  // }, []);
+
+  const showMovies = moviesList.map((movie)=> {
+
+  })
 
   return (
     <div className="movies-card">
@@ -25,10 +32,23 @@ function HomeTab() {
         <Tabs type="card">
           <TabPane tab="all" key="1" className="all-movie">
             {moviesList.map((movie) => (
+              //  <Link to={'/overview'}>
               <div className="all-movie-list" key={movie.id}>
                 <img alt="movie" src={movie.image_url} />
                 <h5>{movie.title}</h5>
+   
+                <Link to={`/overview/${movie.id}`}>
+                <button
+                  onClick={() => {
+                    dispatch(getMoviesId(movie.id));
+                    // history.push("/overview");
+                  }}
+                >
+                  synopsis
+                </button>
+                </Link>
               </div>
+              // </Link>
             ))}
           </TabPane>
           <TabPane tab="anime" key="2">

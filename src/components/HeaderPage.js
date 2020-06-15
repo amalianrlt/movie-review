@@ -13,9 +13,7 @@ function HeaderPage() {
         </Link>
         <Input placeholder="Search" />
         <div className="modal-view">
-          <Link to="overview">
             <h1>Sign In</h1>
-          </Link>
           <ModalPage/>
         </div>
       </Header>

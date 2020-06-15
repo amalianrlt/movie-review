@@ -28,11 +28,11 @@ export const getMovies = () => {
   }
 }
 
-export const getMoviesId = () => {
+export const getMoviesId = (id) => {
   return dispatch => (
     Axios({
       method: "GET",
-      url: `${url}/movies/1`,
+      url: `${url}/movies/${id}`,
       headers: {
         "Content-type": "application/json"
       } 
