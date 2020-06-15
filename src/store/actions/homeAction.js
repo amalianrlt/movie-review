@@ -8,14 +8,14 @@ export function getMovies(){
       method: "GET",
       url: "https://jsonplaceholder.typicode.com/photos",
       headers: {
-        "Content-type": "application/json; charset=UTF-8"
+        "Content-type": "application/json"
       } 
     })
     .then((res) => {
-      console.log("RES",res.data.slice(0,30))
+      console.log("RES",res.data[0])
       dispatch({
         type: GET_MOVIES_REQUEST,
-        payload: res.data.title
+        payload: res.data[0]
        })
     })
     .catch((err) => {

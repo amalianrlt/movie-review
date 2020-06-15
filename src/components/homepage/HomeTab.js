@@ -6,12 +6,13 @@ import { getMovies } from "../../store/actions/homeAction";
 
 const { TabPane } = Tabs;
 
-
 function HomeTab() {
 
   const dispatch = useDispatch()
   dispatch(getMovies())
 
+  // const moviesList = useSelector(state => state.homeReducer.movies)
+  // console.log(moviesList, "GET")
 
   // const [movies, setMovies] = useState([]);
   // const getMovies = useSelector(state => state.homeReducer.movies)
