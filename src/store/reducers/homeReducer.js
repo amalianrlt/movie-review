@@ -2,7 +2,8 @@ import {GET_MOVIES_REQUEST, GET_MOVIES_ID} from "../actions/types";
 
 let initialState = {
   movies: [],
-  moviesId : []
+  moviesId : [],
+  pagination: []
 };
 const homeReducer =(state = initialState, action) => {
   const {type, payload} = action;

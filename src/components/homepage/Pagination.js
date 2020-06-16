@@ -1,10 +1,14 @@
-import React from 'react';
-import { Pagination } from 'antd';
+import React, { useState } from "react";
+import { Pagination } from "antd";
+import { useDispatch } from "react-redux";
+import { getMoviesPagination } from "../../store/actions/homeAction";
 
 function PaginationPage() {
-  // state = {
-  //   current: 1,
-  // };
+  const dispatch = useDispatch();
+  // dispatch(getMoviesPagination);
+  // const [movies, setMovies] = useState([])
+  // const [currentMovies, setCurrentMovies] = useState(1)
+  // const [postPerPage, setPostPerPage] = useState(5)
 
   // onChange = page => {
   //   console.log(page);
@@ -13,8 +17,21 @@ function PaginationPage() {
   //   });
   // };
 
-    return <Pagination style={{textAlign:"center", marginBottom:"3rem"}} total={50} />;
+  const changePage = (key) => {
+      console.log('key',key)
+      // setPage(key)
+      dispatch(getMoviesPagination(key))
+    }
+  
 
-}
+  return (
+    <Pagination
+      onChange={changePage}
+      style={{ textAlign: "center", marginBottom: "3rem" }}
+      defaultPageSize={5}
+      total={20}
+    />
+  );
+  }
 
-export default PaginationPage
+export default PaginationPage;

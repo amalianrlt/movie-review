@@ -28,6 +28,30 @@ export const getMovies = () => {
   }
 }
 
+export const getMoviesPagination = (key) => {
+  return dispatch => {
+    Axios({
+      method: "GET",
+      url: `${url}/movies?page=${key}`,
+      headers: {
+        "Content-type": "application/json"
+      } 
+    })
+    .then((res) => { 
+      console.log('RESPON', res)
+      dispatch({
+        type: GET_MOVIES_REQUEST,
+        payload: res.data.data
+       })
+    })
+    .catch((err) => {
+      console.log({
+        error: err
+      })
+    });
+  }
+}
+
 export const getMoviesId = (id) => {
   return dispatch => (
     Axios({

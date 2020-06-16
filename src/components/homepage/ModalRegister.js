@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
-import userRegister from '../../store/actions/auth'
+import {userRegister} from '../../store/actions/auth'
 import { useForm } from "react-hook-form";
 
 
@@ -13,6 +13,7 @@ const ModalRegister = () => {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
   const [input, setInput] = useState({
+    username: "",
     name: "",
     email: "",
     password: "",
@@ -20,7 +21,7 @@ const ModalRegister = () => {
 
   const onSubmit = data =>{
     console.log(data)
-   dispatch(userRegister(input))
+   dispatch(userRegister(data))
   }
   const showingModal = () => {
     setVisible(!visible);
@@ -53,6 +54,8 @@ const ModalRegister = () => {
          <form onSubmit={handleSubmit(onSubmit)}>
           <p>Full Name</p>
           <input type="text" placeholder="FullName" name="name" ref={register}/>
+          <p>Username</p>
+          <input type="text" placeholder="UserName" name="username" ref={register}/>
           <p>Email</p>
           <input type="text" placeholder="Email" name="email" ref={register}/>
           <p>Password</p>

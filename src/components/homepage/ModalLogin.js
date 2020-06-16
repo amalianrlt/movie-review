@@ -1,7 +1,7 @@
 import { Modal, Button } from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import login from '../../store/actions/auth'
+import {login} from '../../store/actions/auth'
 import { Link } from "react-router-dom";
 import ModalRegister from "./ModalRegister";
 import { useForm } from "react-hook-form";
@@ -16,14 +16,13 @@ const ModalLogin = () => {
     password: "",
   });
 
-  dispatch(login)
   const showingModal = () => {
     setVisible(!visible)
   }
 
   const onSubmit = data =>{
     console.log(data)
-    dispatch(login(input))
+    dispatch(login(data))
   }
 
   const handleOk = () =>{
@@ -37,8 +36,6 @@ const ModalLogin = () => {
   const handleCancel = () =>{
     setVisible(false)
   }
-  
-  
 
   return (
     <div>
@@ -59,7 +56,7 @@ const ModalLogin = () => {
           <input type="text" placeholder="Password" name="password" ref={register}/>
           <input type="submit"/>
         <Link to={<ModalRegister />}>
-          <p>I doesn't have an account</p>
+          <p>I don't have an account</p>
         </Link>
         </form>
       </Modal>
