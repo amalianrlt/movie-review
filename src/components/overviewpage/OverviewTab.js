@@ -1,5 +1,6 @@
 import React from "react";
 import { Tabs } from "antd";
+import { useSelector } from 'react-redux'
 import MovieReview from "./MovieReview";
 import InputComment from "../comment/InputComment";
 import CommentSection from "../comment/CommentSection";
@@ -8,6 +9,8 @@ const { TabPane } = Tabs;
 
 
 function OverviewTab() {
+  const moviesId = useSelector((state) => state.homeReducer.moviesId);
+
   return (
     <div className="overview-content">
       <MovieReview/>
@@ -17,7 +20,7 @@ function OverviewTab() {
           <Tabs type="card">
             <TabPane tab="Overview" key="1">
               <h2>Synopsis</h2>
-              <p>Content of Tab Pane 1</p>
+              <p>{moviesId.synopsis}</p>
               <h2>Movie Info</h2>
               <p>Content of Tab Pane 1</p>
             </TabPane>
