@@ -11,7 +11,7 @@ const ModalLogin = () => {
   const {register, handleSubmit} = useForm()
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [input, setInput] = useState({
+  const [input] = useState({
     email: "",
     password: "",
   });

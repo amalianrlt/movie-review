@@ -5,7 +5,6 @@ const url = "https://movieapp-project-2.herokuapp.com/api/v1"
 
 export const getMovies = () => {
   return dispatch => {
-    // dispatch({type: types.GET_MOVIES_REQUEST})
     Axios({
       method: "GET",
       url: `${url}/movies/`,
@@ -14,7 +13,6 @@ export const getMovies = () => {
       } 
     })
     .then((res) => { 
-      console.log('RESPON', res)
       dispatch({
         type: GET_MOVIES_REQUEST,
         payload: res.data.data
@@ -38,7 +36,6 @@ export const getMoviesPagination = (key) => {
       } 
     })
     .then((res) => { 
-      console.log('RESPON', res)
       dispatch({
         type: GET_MOVIES_REQUEST,
         payload: res.data.data
@@ -62,7 +59,7 @@ export const getMoviesId = (id) => {
       } 
     })
     .then((res)=>{
-      console.log(res, "RESDATAaaa")
+      console.log(res.data.data.Reviews, "RESDATAaaa")
       dispatch({
         type : GET_MOVIES_ID,
         payload : res.data.data

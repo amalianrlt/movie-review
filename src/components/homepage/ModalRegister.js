@@ -12,7 +12,7 @@ const ModalRegister = () => {
   const {register, handleSubmit} = useForm()
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [input, setInput] = useState({
+  const [input] = useState({
     username: "",
     name: "",
     email: "",
