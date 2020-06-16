@@ -1,8 +1,8 @@
 import React from "react";
 import { Input, Layout } from "antd";
 import { Link } from "react-router-dom";
-import ModalPage from './homepage/ModalPage'
 import ModalLogin from "./homepage/ModalLogin";
+import ModalRegister from "./homepage/ModalRegister";
 
 const { Header } = Layout;
 function HeaderPage() {
@@ -14,8 +14,9 @@ function HeaderPage() {
         </Link>
         <Input placeholder="Search" />
         <div className="modal-view">
-            <h1>Sign In</h1>
-          <ModalPage/>
+          <ModalRegister />
+          <ModalLogin />
+          <h1>signout</h1>
         </div>
       </Header>
     </Layout>

@@ -8,7 +8,6 @@ import { useHistory, Link } from "react-router-dom";
 const { TabPane } = Tabs;
 
 function HomeTab() {
-  let history = useHistory();
   const dispatch = useDispatch();
   const moviesList = useSelector((state) => state.homeReducer.movies);
   const moviesId = useSelector((state) => state.homeReducer.moviesId);
@@ -20,10 +19,6 @@ function HomeTab() {
   // useEffect(() => {
   //   dispatch(getMoviesId());
   // }, []);
-
-  const showMovies = moviesList.map((movie)=> {
-
-  })
 
   return (
     <div className="movies-card">
