@@ -104,7 +104,7 @@ const ModalRegister = (props) => {
           />
           <p style={{ marginLeft: ".5rem" }}>Password</p>
           <input
-            type="text"
+            type="password"
             placeholder="Create your password"
             name="password"
             ref={register}

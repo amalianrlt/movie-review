@@ -70,7 +70,7 @@ const ModalLogin = (props) => {
           />
           <p style={{ marginLeft: ".5rem" }}>Password</p>
           <input
-            type="text"
+            type="password"
             placeholder="Input your correct password"
             name="password"
             ref={register}
