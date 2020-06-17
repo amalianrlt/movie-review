@@ -7,9 +7,8 @@ import DropDown from './DropDown'
 const { Header } = Layout;
 function HeaderPage() {
   // const dispatch = useDispatch();
-  const stateUser = useSelector((state) => state.auth);
-  console.log('USER', stateUser)
-  
+  const stateUser = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <Layout>
       <Header>
