@@ -1,15 +1,15 @@
 import axios from "axios";
-import { LOGIN_SUCCESS, REGISTER_SUCCESS, REGISTER_FAILED, LOGIN_FAILED } from "./types";
+import { LOGIN_SUCCESS, REGISTER_SUCCESS, REGISTER_FAILED, LOGIN_FAILED, SIGN_OUT } from "./types";
 
 
 export const login = (data) => async (dispatch) => {
    try {
      const res = await axios.post("https://movieapp-project-2.herokuapp.com/api/v1/login", data);
-     console.log(res.data.data.access_token, "COBA");
     window.localStorage.setItem("token", res.data.data.access_token);
     dispatch({
       type: LOGIN_SUCCESS,
     });
+    console.log("RES", res.data.data.username)
   } catch (err) {
     console.log(err);
     dispatch({
@@ -21,8 +21,7 @@ export const login = (data) => async (dispatch) => {
 export const userRegister = (data) => async (dispatch) => {
   console.log("DATA", data)
   try {
-    const res = await axios.post("https://movieapp-project-2.herokuapp.com/api/v1/register", data);
-    console.log(res.data, "COBA");
+    const res = await axios.post("https://movieapp-project-2.herokuapp.com/api/v1/register", data)
     window.localStorage.setItem("token", res.data.data.access_token);
     dispatch({
       type: REGISTER_SUCCESS,
@@ -35,3 +34,10 @@ export const userRegister = (data) => async (dispatch) => {
 
   }
 };
+
+export const signOut = () => {
+  return {
+    type: SIGN_OUT
+  };
+};
+

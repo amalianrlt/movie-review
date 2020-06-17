@@ -15,7 +15,7 @@ function FooterPage() {
       <Footer>
         <div className="card-footer">
           <div className="desc-footer">
-            <h1>MilanTV</h1>
+            <h1>MovieFlix</h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard. printing
@@ -49,7 +49,7 @@ function FooterPage() {
             </div>
           </div>
         </div>
-        <h5>Copyright © 2000-202 MilanTV. All Rights Reserved</h5>
+        <h5>Copyright © 2000-202 MovieFlix. All Rights Reserved</h5>
       </Footer>
     </Layout>
   );

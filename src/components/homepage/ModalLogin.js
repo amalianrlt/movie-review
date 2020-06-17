@@ -1,14 +1,14 @@
-import { Modal, Button } from "antd";
+import { Modal} from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {login} from '../../store/actions/auth'
-import { Link } from "react-router-dom";
+import { login } from "../../store/actions/auth";
+
 import ModalRegister from "./ModalRegister";
 import { useForm } from "react-hook-form";
 
-const ModalLogin = () => {
+const ModalLogin = (props) => {
   const dispatch = useDispatch();
-  const {register, handleSubmit} = useForm()
+  const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
   const [input] = useState({
@@ -17,31 +17,33 @@ const ModalLogin = () => {
   });
 
   const showingModal = () => {
-    setVisible(!visible)
-  }
+    setVisible(!visible);
+  };
 
-  const onSubmit = data =>{
-    console.log(data)
-    dispatch(login(data))
-  }
+  const closeModal = () => {
+    setVisible(false);
+  };
 
-  const handleOk = () =>{
-    setLoading(!loading)
-    setTimeout(()=> {
-      setVisible(visible)
-      setLoading(loading)
-    }, 3000)
-  }
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(login(data));
+  };
 
-  const handleCancel = () =>{
-    setVisible(false)
-  }
+  const handleOk = () => {
+    setLoading(!loading);
+    setTimeout(() => {
+      setVisible(visible);
+      setLoading(loading);
+    }, 3000);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
 
   return (
     <div>
-      <Button type="primary" onClick={showingModal}>
-        Login
-      </Button>
+      <a onClick={showingModal}>Login</a>
       <Modal
         visible={visible}
         title="Login"
@@ -49,15 +51,65 @@ const ModalLogin = () => {
         onCancel={handleCancel}
         footer={null}
       >
-          <form onSubmit={handleSubmit(onSubmit)}>
-          <p>Email</p>
-          <input type="text" placeholder="Email" name="email" ref={register}/>
-          <p>Password</p>
-          <input type="text" placeholder="Password" name="password" ref={register}/>
-          <input type="submit"/>
-        <Link to={<ModalRegister />}>
-          <p>I don't have an account</p>
-        </Link>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <p style={{ marginLeft: ".5rem" }}>Email</p>
+          <input
+            type="text"
+            placeholder="Insert your registered email"
+            name="email"
+            ref={register}
+            style={{
+              width: "21rem",
+              height: "2rem",
+              borderRadius: ".3rem",
+              padding: ".5rem",
+              marginBottom: "1rem",
+              marginTop: "-.5rem",
+              border: "1px solid black"
+            }}
+          />
+          <p style={{ marginLeft: ".5rem" }}>Password</p>
+          <input
+            type="text"
+            placeholder="Input your correct password"
+            name="password"
+            ref={register}
+            style={{
+              width: "21rem",
+              height: "2rem",
+              borderRadius: ".3rem",
+              padding: ".5rem",
+              marginBottom: "1rem",
+              marginTop: "-.5rem",
+              border: "1px solid black"
+            }}
+          />
+          <input
+            type="submit"
+            onClick={closeModal}
+            style={{
+              borderRadius: ".3rem ",
+              fontSize: "1rem",
+              padding: '0.2rem 1rem',
+              marginBottom: "1rem",
+              marginTop: ".5rem",
+              textAlign: "center",
+              border: "1px solid #1C91FF",
+              color: "white",
+              backgroundColor:"#1C91FF"
+            }}
+          />
+          <p>
+            {" "}
+            <a
+              id={ModalRegister}
+              href="/#"
+              onClick={ModalRegister}
+              style={{ color: "black" }}
+            >
+              I don't have an account
+            </a>{" "}
+          </p>
         </form>
       </Modal>
     </div>

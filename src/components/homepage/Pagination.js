@@ -7,11 +7,9 @@ function PaginationPage() {
   const dispatch = useDispatch();
 
   const changePage = (key) => {
-      console.log('key',key)
       dispatch(getMoviesPagination(key))
     }
   
-
   return (
     <Pagination
       onChange={changePage}

@@ -1,35 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './index.css';
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import React from "react";
+import ModalRegister from "./homepage/ModalRegister";
+import ModalLogin from "./homepage/ModalLogin";
+import { signOut } from "../store/actions/auth";
+import { useDispatch } from "react-redux";
 
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-        My List
+export default function DropDown() {
+  const dispatch = useDispatch()
+  const handleSignOut = () => {
+    dispatch(signOut())
+    window.location.reload()
+}
+  return (
+    <div className="dropdown">
+      <a href="javascript:void(0)" className="dropbtn" style={{color:'white', fontSize: "20px", fontWeight:400}}>
+        Account 
       </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-        Change Profile
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-        Setting
-      </a>
-    </Menu.Item>
-    <Menu.Item danger>Sign Out</Menu.Item>
-  </Menu>
-);
-
-return(
-  <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
-    </a>
-  </Dropdown>
-);
+      <div className="dropdown-content">
+        <ModalLogin/>
+        <ModalRegister/>
+        <a href="#" onClick={handleSignOut}>Sign Out</a>
+      </div>
+    </div>
+  );
+}
