@@ -1,4 +1,10 @@
-import { LOGIN_SUCCESS, LOGIN_FAILED, REGISTER_FAILED, REGISTER_SUCCESS } from "../actions/types";
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
+  REGISTER_FAILED,
+  REGISTER_SUCCESS,
+  SIGN_OUT,
+} from "../actions/types";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -23,7 +29,7 @@ const auth = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: false,
-        token: localStorage.removeItem("token")
+        token: localStorage.removeItem("token"),
       };
     }
     case REGISTER_SUCCESS: {
@@ -37,9 +43,13 @@ const auth = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: false,
-        token: localStorage.removeItem("token")
+        token: localStorage.removeItem("token"),
       };
     }
+    case SIGN_OUT:
+      return{
+        token: localStorage.removeItem("token"),
+      }
   }
 };
 

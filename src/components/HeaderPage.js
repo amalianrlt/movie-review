@@ -1,25 +1,36 @@
-import React from "react";
-import { Input, Layout } from "antd";
+import React, {useDispatch} from "react";
+import { Input, Layout} from "antd";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import ModalLogin from "./homepage/ModalLogin";
-import ModalRegister from "./homepage/ModalRegister";
-import {Route} from 'react-router-dom'
+import DropDown from './DropDown'
 
 const { Header } = Layout;
 function HeaderPage() {
+  // const dispatch = useDispatch();
+  const stateUser = useSelector((state) => state.auth);
+  console.log('USER', stateUser)
+  
   return (
     <Layout>
       <Header>
         <Link to="/">
-          <h1>MilanTV</h1>
+          <h1>MovieFLIX</h1>
         </Link>
         <Input placeholder="Search" />
+        <div>
+          {stateUser ? (
+            <div className="profile-wrapper">
+              <div className="profile-container">
+                <h2>Hello, {stateUser.username} </h2>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+
         <div className="modal-view">
-        <Route><ModalRegister /></Route>
-        <Route><ModalLogin /></Route>
-          {/* <ModalRegister />
-          <ModalLogin /> */}
-          <h1>signout</h1>
+         <DropDown/>
         </div>
       </Header>
     </Layout>

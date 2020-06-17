@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Tabs } from "antd";
+import { Tabs, Button } from "antd";
 import { getMovies, getMoviesId } from "../../store/actions/homeAction";
 import { Link } from "react-router-dom";
 
@@ -13,11 +13,7 @@ function HomeTab() {
 
   useEffect(() => {
     dispatch(getMovies());
-  }, []);
-
-  // useEffect(() => {
-  //   dispatch(getMoviesId());
-  // }, []);
+  }, [dispatch]);
 
   return (
     <div className="movies-card">
@@ -26,21 +22,21 @@ function HomeTab() {
         <Tabs type="card">
           <TabPane tab="all" key="1" className="all-movie">
             {moviesList.map((movie) => (
-              //  <Link to={'/overview'}>
               <div className="all-movie-list" key={movie.id}>
                 <img alt="movie" src={movie.image_url} />
-                <h5>{movie.title}</h5>
-   
-                <Link to={`/overview/${movie.id}`}>
-                <button
-                  onClick={() => {
-                    dispatch(getMoviesId(movie.id));
-                    // history.push("/overview");
-                  }}
-                >
-                  synopsis
-                </button>
-                </Link>
+                <h4>{movie.title}</h4>
+                <div className="overlay">
+                  <Link to={`/overview/${movie.id}`}>
+                    <Button
+                      onClick={() => {
+                        dispatch(getMoviesId(movie.id));
+                      }}
+                      className="button-review"
+                    >
+                      View Review(s)
+                    </Button>
+                  </Link>
+                </div>
               </div>
               // </Link>
             ))}
