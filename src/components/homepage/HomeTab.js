@@ -15,6 +15,7 @@ function HomeTab() {
     dispatch(getMovies());
   }, [dispatch]);
 
+  dispatch(getMoviesId())
   return (
     <div className="movies-card">
       <h3>Browse by Category</h3>
@@ -27,14 +28,15 @@ function HomeTab() {
                 <h4>{movie.title}</h4>
                 <div className="overlay">
                   <Link to={`/overview/${movie.id}`}>
-                    <Button
+                
+                    {/* <Button
                       onClick={() => {
                         dispatch(getMoviesId(movie.id));
                       }}
                       className="button-review"
                     >
                       View Review(s)
-                    </Button>
+                    </Button> */}
                   </Link>
                 </div>
               </div>
