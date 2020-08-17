@@ -45,7 +45,7 @@ const ModalRegister = (props) => {
 
   return (
     <div>
-      <a onClick={showingModal}>Register</a>
+      <a href="/" onClick={showingModal}>Register</a>
       <Modal
         visible={visible}
         title="Register"
@@ -134,7 +134,7 @@ const ModalRegister = (props) => {
             }}
           />
           
-            <a style={{ color: "black" }}> I have an account</a>
+            <p style={{ color: "black" }}> I have an account</p>
          
         </form>
       </Modal>

@@ -11,7 +11,7 @@ deploy-to-development:
     - npm install
     - npm run build
   except:
-    - develop
+    # - develop
     - master
 
 deploy-to-staging:
@@ -26,7 +26,7 @@ deploy-to-staging:
     - gem install dpl
     - dpl --provider=heroku --app=$HEROKU_STAGING_APP --api-key=$HEROKU_API_KEY
   only:
-    - develop
+    - master
     
 deploy-production:
   type: deploy

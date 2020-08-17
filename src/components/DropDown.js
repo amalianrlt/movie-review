@@ -12,13 +12,13 @@ export default function DropDown() {
 }
   return (
     <div className="dropdown">
-      <a href="javascript:void(0)" className="dropbtn" style={{color:'white', fontSize: "20px", fontWeight:400}}>
+      <a href="/" className="dropbtn" style={{color:'white', fontSize: "20px", fontWeight:400}}>
         Account 
       </a>
       <div className="dropdown-content">
         <ModalLogin/>
         <ModalRegister/>
-        <a href="#" onClick={handleSignOut}>Sign Out</a>
+        <a href="/" onClick={handleSignOut}>Sign Out</a>
       </div>
     </div>
   );

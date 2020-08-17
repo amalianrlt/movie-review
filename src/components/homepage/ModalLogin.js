@@ -42,7 +42,7 @@ const ModalLogin = (props) => {
 
   return (
     <div>
-      <a onClick={showingModal}>Login</a>
+      <a href="/" onClick={showingModal}>Login</a>
       <Modal
         visible={visible}
         title="Login"
