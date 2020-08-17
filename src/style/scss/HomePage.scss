@@ -1,13 +1,8 @@
 @import "_variables.scss";
-body{
-  font-family: 'Times New Roman', Times, serif;
-}
-li {
-  list-style: none;
-}
+@import "~antd/dist/antd.css";
 
 header {
-  h2{
+  h2 {
     color: $white !important;
     font-weight: 400;
     margin-top: 1rem;
@@ -15,16 +10,16 @@ header {
   }
   display: flex;
   background-color: $black !important;
-  
+
   justify-content: space-between;
   align-items: center;
   padding: 0 7rem !important;
-        h1{
-          color: $white !important;
-          font-weight: 600;
-          margin-top: .5rem;
-          font-size: 30px;
-        }
+  h1 {
+    color: $white !important;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 30px;
+  }
   input {
     height: 2rem;
     width: 30rem !important;
@@ -40,7 +35,7 @@ header {
 
 .ant-carousel .slick-slide {
   text-align: center;
-  height: 560px !important;
+  height: 560px;
   line-height: 160px;
   background: #364d79;
   overflow: hidden;
@@ -50,9 +45,13 @@ header {
   }
 }
 
+.movieList{
+  margin: .5rem !important;
+}
+
 .movies-card {
   text-align: left;
-  padding: 2rem 7rem;
+  padding: 2rem 5rem;
   h3 {
     font-size: 25px;
     margin-bottom: 2rem;
@@ -84,10 +83,10 @@ header {
       .overlay {
         opacity: 0;
       }
-      h4{
+      h4 {
         text-align: center;
         font-size: 20px;
-        line-height:1.5;
+        line-height: 1.5;
         padding-top: 1rem;
       }
       img {
@@ -100,7 +99,7 @@ header {
       .button-review {
         transform: translate(30%, -700%);
         border-radius: 2rem;
-        color: black  ;
+        color: black;
         border: 1px solid black;
       }
     }
@@ -121,21 +120,21 @@ header {
   .card-movie-component {
     padding: 7rem;
   }
-.button-review-movie{
-  display: flex;
-  align-items: center;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-    button {
-      margin: 1rem 1.5rem;
-      text-align: center;
-      height: 2.5rem;
-      width: 10rem;
-      border-radius: 2rem;
-      font-size: large;
-     align-self: center;
-    }
+  .button-review-movie {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  button {
+    margin: 1rem 1.5rem;
+    text-align: center;
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 2rem;
+    font-size: large;
+    align-self: center;
+  }
 }
 
 .overview-content {
@@ -164,10 +163,10 @@ footer {
       width: 45%;
       font-size: 20px !important;
       text-align: left !important;
-      h1{
+      h1 {
         color: $white !important;
         font-weight: 600;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         font-size: 30px;
       }
     }
@@ -201,33 +200,34 @@ footer {
   }
 }
 
-.dropdown-content{
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  a{
+  a {
     color: black;
-  padding: 0 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+    padding: 0 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
   }
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 .ant-modal-title {
-  margin-left: .5rem!important;
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
-  font-size: 22px!important;
+  font-size: 22px !important;
   line-height: 22px;
   word-wrap: break-word;
 }
@@ -236,9 +236,9 @@ footer {
   position: relative;
   background-color: #fff;
   background-clip: padding-box;
-  border-radius: 10px!important;
-  width: 25rem!important;
-  .ant-modal-header{
+  border-radius: 5px !important;
+  width: 25rem !important;
+  .ant-modal-header {
     border-radius: 10px !important;
   }
 }

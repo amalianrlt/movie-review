@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Tabs } from "antd";
+import { Tabs, Card } from "antd";
 import { getMovies, getMoviesId } from "../../store/actions/homeAction";
 import { Link } from "react-router-dom";
+import Meta from "antd/lib/card/Meta";
 
 const { TabPane } = Tabs;
 
@@ -22,26 +23,20 @@ function HomeTab() {
       <div className="card-container">
         <Tabs type="card">
           <TabPane tab="all" key="1" className="all-movie">
-            {moviesList.map((movie) => (
-              <div className="all-movie-list" key={movie.id}>
-                <img alt="movie" src={movie.image_url} />
-                <h4>{movie.title}</h4>
-                <div className="overlay">
-                  <Link to={`/overview/${movie.id}`}>
-                
-                    {/* <Button
-                      onClick={() => {
-                        dispatch(getMoviesId(movie.id));
-                      }}
-                      className="button-review"
-                    >
-                      View Review(s)
-                    </Button> */}
-                  </Link>
-                </div>
-              </div>
-              // </Link>
-            ))}
+            {moviesList.map((movie) => 
+             <Link to={`/overview/${movie.id}`}>
+              <Card
+                key={movie.id}
+                className="movieList"
+                hoverable
+                style={{ width: 240 }}
+                cover={<img alt="movie" src={movie.image_url} />}
+                onClick={() => {dispatch(getMoviesId(movie.id));}}
+                >
+                <Meta title={movie.title} />
+              </Card>
+              </Link>
+            )}
           </TabPane>
           <TabPane tab="anime" key="2">
             <p>{moviesId.title}</p>

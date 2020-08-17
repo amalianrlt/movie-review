@@ -4,23 +4,36 @@ import {
   REGISTER_FAILED,
   REGISTER_SUCCESS,
   SIGN_OUT,
+  GET_USER,
 } from "../actions/types";
 
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
   errors: null,
+  dataUser: {}
 };
 
+const authCheck = (state = initialState) => {
+  if (initialState.token === null || undefined){
+    initialState.isAuthenticated = false
+  } else {
+    initialState.isAuthenticated = true
+  }
+}
+
 const auth = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action
+  switch (type) {
     default:
+      authCheck()
       return {
         ...state,
       };
     case LOGIN_SUCCESS: {
       return {
         ...state,
+        token: localStorage.getItem("token"),
         isAuthenticated: true,
         errors: null,
       };
@@ -35,6 +48,7 @@ const auth = (state = initialState, action) => {
     case REGISTER_SUCCESS: {
       return {
         ...state,
+        token: localStorage.getItem("token"),
         isAuthenticated: true,
         errors: null,
       };
@@ -46,9 +60,18 @@ const auth = (state = initialState, action) => {
         token: localStorage.removeItem("token"),
       };
     }
+    case GET_USER:{
+      return {
+        ...state,
+        dataUser : payload
+      }
+    }
     case SIGN_OUT:
-      return{
-        token: localStorage.removeItem("token"),
+      localStorage.clear()
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false
       }
   }
 };

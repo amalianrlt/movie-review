@@ -1,31 +1,20 @@
-import { Modal} from "antd";
+import { Modal, Button, Input} from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import Form from "antd/lib/form/Form";
+import { ModalRegister } from "./ModalRegister";
 import { login } from "../../store/actions/auth";
-import ModalRegister from "./ModalRegister";
-import { useForm } from "react-hook-form";
 
-const ModalLogin = (props) => {
-  const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+export const ModalLogin = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [input] = useState({
-    email: "",
-    password: "",
-  });
+  
+  const dispatch = useDispatch()
 
   const showingModal = () => {
     setVisible(!visible);
-  };
-
-  const closeModal = () => {
-    setVisible(false);
-  };
-
-  const onSubmit = (data) => {
-    console.log(data);
-    dispatch(login(data));
   };
 
   const handleOk = () => {
@@ -40,78 +29,64 @@ const ModalLogin = (props) => {
     setVisible(false);
   };
 
-  return (
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = {
+      email,
+      password,
+    };
+    await dispatch(login(user));
+  };
+
+  return(
     <div>
-      <a href="/" onClick={showingModal}>Login</a>
-      <Modal
-        visible={visible}
-        title="Login"
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <p style={{ marginLeft: ".5rem" }}>Email</p>
-          <input
-            type="text"
-            placeholder="Insert your registered email"
-            name="email"
-            ref={register}
-            style={{
-              width: "21rem", 
-              height: "2rem",
-              borderRadius: ".3rem",
-              padding: ".5rem",
-              marginBottom: "1rem",
-              marginTop: "-.5rem",
-              border: "1px solid black"
-            }}
-          />
-          <p style={{ marginLeft: ".5rem" }}>Password</p>
-          <input
-            type="password"
-            placeholder="Input your correct password"
-            name="password"
-            ref={register}
-            style={{
-              width: "21rem",
-              height: "2rem",
-              borderRadius: ".3rem",
-              padding: ".5rem",
-              marginBottom: "1rem",
-              marginTop: "-.5rem",
-              border: "1px solid black"
-            }}
-          />
-          <input
-            type="submit"
-            onClick={closeModal}
-            style={{
-              borderRadius: ".3rem ",
-              fontSize: "1rem",
-              padding: '0.2rem 1rem',
-              marginBottom: "1rem",
-              marginTop: ".5rem",
-              textAlign: "center",
-              border: "1px solid #1C91FF",
-              color: "white",
-              backgroundColor:"#1C91FF"
-            }}
-          />
-          <p>
-            {" "}
-            <a
-              id={ModalRegister}
-              href="/#"
-              onClick={ModalRegister}
-              style={{ color: "black" }}
-            >
-              I don't have an account
-            </a>{" "}
-          </p>
-        </form>
-      </Modal>
-    </div>
-  );
-};
-export default ModalLogin;
+    <Button type="link" onClick={showingModal}>Login</Button>
+    <Modal
+      visible={visible}
+      title="Login"
+      onOk={handleOk}
+      onCancel={handleCancel}
+      footer={null}
+    >
+      <Form onSubmit={handleSubmit}>
+        <p>Email</p>
+        <Input
+          value={email}
+          type="email"
+          name="email"
+          placeholder="Input your email"
+          onChange={(e) => setEmail(e.target.value)}
+          style={{
+            width: "21rem", 
+            height: "2rem",
+            borderRadius: "3px",
+            padding: ".5rem",
+            marginBottom: "1rem",
+            marginTop: "-.5rem",
+            border: "1px solid black"
+          }}
+        />
+        <p>Password</p>
+        <Input
+          value={password}
+          name="password"
+          id="inputPassword"
+          placeholder="Input your password"
+          onChange={(e) => setPassword(e.target.value)}
+          style={{
+            width: "21rem",
+            height: "2rem",
+            borderRadius: ".3rem",
+            padding: ".5rem",
+            marginBottom: "1rem",
+            marginTop: "-.5rem",
+            border: "1px solid black"
+          }}
+        />
+        <Button Button onClick={(e) => handleSubmit(e)}>Login</Button>
+        <ModalRegister/>
+      </Form>
+    </Modal>
+  </div>
+  )
+}

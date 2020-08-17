@@ -1,12 +1,11 @@
 import React from "react";
-import { Input, Layout} from "antd";
+import { Input, Layout } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import DropDown from './DropDown'
+import { DropDown, DropDownUser } from "./DropDown";
 
 const { Header } = Layout;
-function HeaderPage() {
-  // const dispatch = useDispatch();
+function HeaderPage(props) {
   const stateUser = useSelector((state) => state.auth.isAuthenticated);
 
   return (
@@ -16,21 +15,7 @@ function HeaderPage() {
           <h1>MovieFLIX</h1>
         </Link>
         <Input placeholder="Search" />
-        <div>
-          {stateUser ? (
-            <div className="profile-wrapper">
-              <div className="profile-container">
-                <h2>Hello, {stateUser.username} </h2>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-
-        <div className="modal-view">
-         <DropDown/>
-        </div>
+        <div>{stateUser ? <DropDownUser /> : <DropDown />}</div>
       </Header>
     </Layout>
   );
