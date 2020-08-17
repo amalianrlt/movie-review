@@ -49,11 +49,11 @@ export const getMoviesPagination = (key) => {
   }
 }
 
-export const getMoviesId = (id) => {
+export const getMoviesId = (movies_id) => {
   return dispatch => (
     Axios({
       method: "GET",
-      url: `${url}/movies/${id}`,
+      url: `${url}/movies/${movies_id}`,
       headers: {
         "Content-type": "application/json"
       } 

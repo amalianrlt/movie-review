@@ -1,25 +1,26 @@
-import {GET_MOVIES_REQUEST, GET_MOVIES_ID} from "../actions/types";
+import { GET_MOVIES_REQUEST, GET_MOVIES_ID } from "../actions/types";
 
 let initialState = {
   movies: [],
-  moviesId : [],
-  pagination: []
+  moviesId: [],
+  pagination: [],
 };
-const homeReducer =(state = initialState, action) => {
-  const {type, payload} = action;
- switch (type) {
-   case GET_MOVIES_REQUEST:
-     return {
-       ...state, 
-       movies:payload}
+const homeReducer = (state = initialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case GET_MOVIES_REQUEST:
+      return {
+        ...state,
+        movies: payload,
+      };
     case GET_MOVIES_ID:
       return {
         ...state,
-        moviesId:payload
-      }
-     default:
-     return state
- }
-}
+        moviesId: payload,
+      };
+    default:
+      return state;
+  }
+};
 
-export default homeReducer
+export default homeReducer;

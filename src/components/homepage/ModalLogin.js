@@ -2,7 +2,6 @@ import { Modal} from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/actions/auth";
-
 import ModalRegister from "./ModalRegister";
 import { useForm } from "react-hook-form";
 
@@ -43,7 +42,7 @@ const ModalLogin = (props) => {
 
   return (
     <div>
-      <a onClick={showingModal}>Login</a>
+      <a href="/" onClick={showingModal}>Login</a>
       <Modal
         visible={visible}
         title="Login"
@@ -59,7 +58,7 @@ const ModalLogin = (props) => {
             name="email"
             ref={register}
             style={{
-              width: "21rem",
+              width: "21rem", 
               height: "2rem",
               borderRadius: ".3rem",
               padding: ".5rem",
@@ -70,7 +69,7 @@ const ModalLogin = (props) => {
           />
           <p style={{ marginLeft: ".5rem" }}>Password</p>
           <input
-            type="text"
+            type="password"
             placeholder="Input your correct password"
             name="password"
             ref={register}
