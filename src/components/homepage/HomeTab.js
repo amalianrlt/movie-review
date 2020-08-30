@@ -16,7 +16,6 @@ function HomeTab() {
     dispatch(getMovies());
   }, [dispatch]);
 
-  dispatch(getMoviesId())
   return (
     <div className="movies-card">
       <h3>Browse by Category</h3>
@@ -24,9 +23,8 @@ function HomeTab() {
         <Tabs type="card">
           <TabPane tab="all" key="1" className="all-movie">
             {moviesList.map((movie) => 
-             <Link to={`/overview/${movie.id}`}>
+             <Link key={movie.id} to={`/overview/${movie.id}`}>
               <Card
-                key={movie.id}
                 className="movieList"
                 hoverable
                 style={{ width: 240 }}

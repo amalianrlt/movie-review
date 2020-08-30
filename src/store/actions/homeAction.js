@@ -59,7 +59,7 @@ export const getMoviesId = (movies_id) => {
       } 
     })
     .then((res)=>{
-      console.log(res.data.data.Reviews, "RESDATAaaa")
+      // console.log(res.data.data.Reviews, "RESDATAaaa")
       dispatch({
         type : GET_MOVIES_ID,
         payload : res.data.data

@@ -1,17 +1,17 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { Button } from "antd";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getMoviesReview } from "../../store/actions/reviewAction";
+// import { getMoviesReview } from "../../store/actions/reviewAction";
 
 function MovieReview() {
   const moviesId = useSelector((state) => state.homeReducer.moviesId);
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(getMoviesReview());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getMoviesReview());
+  // }, [dispatch]);
 
   return (
     <div className="movie-review">
