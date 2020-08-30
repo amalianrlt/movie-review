@@ -1,5 +1,5 @@
 # Movie Review
-This is client-side application based on React.js to finish second mini Project in Glints Academy. In this App, we working as a team in Frontend Developer. 
+This is client-side application based on React.js to finish second mini Project in Glints Academy called MovieFlix. In this App, we working as a team in Frontend Developer. 
 The Contributors :
 1. Amalia Nurlita
 2. RadhiyahFahra
@@ -13,7 +13,7 @@ Framework and Library :
 - Redux
 
 ## What you can do 
-In this App, you can view the movie list and the detail of the movie.
+In this App, you can view the movie list and the detail of the movie. You can visit [MovieFlix](https://movieflix-team-a.netlify.app)
 
 ### Available Scripts
 To clone and run this application, you'll need Git and Node.js (which comes with npm) installed on your computer. From your command line:
